@@ -1,15 +1,12 @@
 {
-  "name": "project_template_react",
+  "name": "sls-3d-web",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev:client": "vite --host --port 3000",
-    "dev": "pnpm dev:client",
-    "build:client": "vite build --outDir dist/static",
-    "deploy": "npx wrangler deploy",
-    "deploy:pages": "npm run build && npx wrangler pages deploy dist/static",
-    "build": "rm -rf dist && pnpm install --no-frozen-lockfile && pnpm build:client && touch dist/build.flag && cp dist/static/index.html dist/static/404.html"
+    "dev": "vite",
+    "build": "vite build && cp dist/index.html dist/404.html && node create-redirects.js",
+    "preview": "vite preview"
   },
   "dependencies": {
     "clsx": "^2.1.1",
